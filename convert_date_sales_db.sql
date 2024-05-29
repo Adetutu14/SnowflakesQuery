@@ -13,3 +13,11 @@ create or replace TABLE ANALYTICS.PUBLIC.AIRLINE (
 
 select *
 from analytics.public.airline;
+
+
+insert into analytics.public.airline
+select route_id, flight_id, aircraft_id, DATEADD(day,date -2, '1900-01-01'::DATE), departure_delay, scheduled_departure, avg_ticket_price, total_fare, flight_month, flight_year
+from analytics.public.flights;
+
+select *
+from analytics.public.airline;
